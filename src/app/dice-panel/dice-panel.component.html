@@ -1,0 +1,5 @@
+<div class="row" *ngFor="let dice of dices">
+  <button (click)="roll(dice.value)">{{dice.name}}</button>
+</div>
+
+<h2>{{result}}</h2>
