@@ -9,10 +9,14 @@ window['jQuery'] = jQuery;
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  display: boolean = false;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  displayMenu() {
+    this.display = !this.display
   }
 
 }
