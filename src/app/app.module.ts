@@ -21,6 +21,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {FileSelectDirective} from 'ng2-file-upload';
 import {FormsModule} from '@angular/forms';
 import {AngularFirestore, FirestoreSettingsToken} from '@angular/fire/firestore';
+import { RoundComponent } from './round/round.component';
 
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -36,7 +37,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
         DicePanelComponent,
         BattleViewComponent,
         NotFoundComponent,
-        FileSelectDirective
+        FileSelectDirective,
+        RoundComponent
     ],
     imports: [
         BrowserModule,

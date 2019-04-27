@@ -12,13 +12,11 @@ export class DashboardComponent implements OnInit {
 
     characterList;
     ngOnInit() {
-       this.playerService.getCharacter().subscribe(res => {
-           console.log(res, 'test');
-           // this.characterList = res;
-       });
+       // this.playerService.getCharacter().subscribe(res => {
+       //     console.log(res, 'test');
+       //     // this.characterList = res;
+       // });
     }
 
-    showList(){
-        console.log(this.characterList);
-    }
+
 }

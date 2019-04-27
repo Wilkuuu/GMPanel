@@ -16,7 +16,7 @@ export class AddPanelComponent implements OnInit {
 
   onSubmit({valid, value}){
     console.log(value);
-    this.playerService.addPlayerToFile(value);
+  //  this.playerService.addPlayerToFile(value);
   }
 
 }
