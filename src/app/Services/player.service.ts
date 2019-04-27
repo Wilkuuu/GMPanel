@@ -13,6 +13,8 @@ export class PlayerService {
 
   collection = 'characters';
   characterRef = this.afs.collection(this.collection);
+  race = ['Human', 'Orc', 'Elf', 'Dwarf'];
+  class = ['Warrior', 'Mage', 'Rouge', 'Ranger'];
 
   // characterCollection: AngularFirestoreCollection<Character>;
   // characterDoc: AngularFirestoreDocument<Character>;
@@ -25,6 +27,7 @@ export class PlayerService {
       console.log(el);
     })
   }
+
 
 
 

@@ -10,7 +10,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {HeaderComponent} from './header/header.component';
-import {AddPanelComponent} from './add-panel/add-panel.component';
+import {AddPlayerPanelComponent} from './add-player-panel/add-player-panel.component';
 import {DicePanelComponent} from './dice-panel/dice-panel.component';
 import {BattleViewComponent} from './battle-view/battle-view.component';
 import {NotFoundComponent} from './not-found/not-found.component';
@@ -33,7 +33,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
         AppComponent,
         DashboardComponent,
         HeaderComponent,
-        AddPanelComponent,
+        AddPlayerPanelComponent,
         DicePanelComponent,
         BattleViewComponent,
         NotFoundComponent,

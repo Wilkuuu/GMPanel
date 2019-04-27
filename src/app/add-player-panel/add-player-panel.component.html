@@ -1,0 +1,43 @@
+<div class="card">
+    <div class="card-title"><h2>{{'Add player'|translate}}</h2>
+    </div>
+    <div class="card-body">
+        <div class="row">
+
+            <form #addPlayer="ngForm" (ngSubmit)="onSubmit(addPlayer)">
+                <div class="col">
+                <div class="form-group">
+                    <label>{{'Player name'|translate}} </label>
+                    <input class="form-control" name="playerName" ngModel required #player="ngModel">
+                </div>
+                <div class="form-group">
+                <label>{{'Character name'|translate}} </label>
+                    <input class="form-control" name="characterName" ngModel required #first="ngModel">
+                </div>
+                <div class="form-group">
+                <label>{{'Class'|translate}} </label>
+                    <select class="form-control" id="exampleFormControlSelect1" name="class" ngModel required #class="ngModel" >
+                        <option *ngFor="let class of classArray">{{class}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                <label>{{'Race'|translate}} </label>
+                    <select class="form-control" id="exampleFormControlSelect1" name="race" ngModel required #race="ngModel" >
+                        <option *ngFor="let race of raceArray">{{race}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                <label>{{'Character name'|translate}} </label>
+                    <input class="form-control"  name="characterName" ngModel required #first="ngModel">
+                </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-success">{{'Add player'|translate}}</button>
+                    </div>
+                </div>
+                <div class="col">
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
