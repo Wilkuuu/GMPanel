@@ -22,6 +22,11 @@ import {FileSelectDirective} from 'ng2-file-upload';
 import {FormsModule} from '@angular/forms';
 import {AngularFirestore, FirestoreSettingsToken} from '@angular/fire/firestore';
 import { RoundComponent } from './round/round.component';
+import { LoginComponent } from './login/login.component';
+import {ToastrModule} from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgHttpLoaderModule } from 'ng-http-loader';
+
 
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -38,14 +43,17 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
         BattleViewComponent,
         NotFoundComponent,
         FileSelectDirective,
-        RoundComponent
+        RoundComponent,
+        LoginComponent
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
+        NgHttpLoaderModule.forRoot(),
         FormsModule,
-        AngularFireModule.initializeApp(environment.firebase, 'GMApp'),
+        AngularFireModule.initializeApp(environment.firebase),
+        // AngularFireModule.initializeApp(environment.firebase, 'GMApp'),
         AngularFireStorageModule,
         AngularFireAuthModule,
         TranslateModule.forRoot({
@@ -54,12 +62,15 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
                 useFactory: HttpLoaderFactory,
                 deps: [HttpClient]
             }
-        })
+        }),
+        BrowserAnimationsModule,
+        ToastrModule.forRoot()
     ],
     providers: [{provide: FirestoreSettingsToken, useValue: {}},
         AngularFirestore],
     bootstrap: [AppComponent]
 })
 export class AppModule {
+
 }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as jQuery from 'jquery';
+import {LoginService} from '../Services/login.service';
 
 window['jQuery'] = jQuery;
 
@@ -10,13 +11,17 @@ window['jQuery'] = jQuery;
 })
 export class HeaderComponent implements OnInit {
   display: boolean = false;
-  constructor() { }
+  constructor(private loginService: LoginService) { }
 
   ngOnInit() {
   }
 
   displayMenu() {
     this.display = !this.display
+  }
+
+  logout() {
+    this.loginService.logout()
   }
 
 }
