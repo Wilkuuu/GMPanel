@@ -15,6 +15,7 @@ export class AddPlayerPanelComponent implements OnInit {
   ngOnInit() {
     this.raceArray = this.playerService.race;
     this.classArray = this.playerService.class;
+    console.log(this.raceArray, this.classArray)
   }
 
   onSubmit(form: NgForm){
