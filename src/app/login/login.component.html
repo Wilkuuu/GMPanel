@@ -1,12 +1,24 @@
-<form #login="ngForm" (ngSubmit)="onSubmit(login)">
-    <div >
-        <label>{{'Email'|translate}}</label>
-        <input class="form-control" ngModel type="text" name="email" required>
+<div class="row">
+    <div class="col"></div>
+    <div class="col">
+        <div >
+
+
+            <form #login="ngForm" (ngSubmit)="onSubmit(login)">
+                <div>
+                    <label>{{'Email'|translate}}</label>
+                    <input class="form-control" ngModel type="text" name="email" required>
+                </div>
+                <div>
+                    <label>{{'Password'|translate}}</label>
+                    <input class="form-control" ngModel type="password" name="password" required>
+                </div>
+                <button type="submit" [disabled]="login.invalid" class="btn btn-info">{{'Submit'|translate}}</button>
+                <button type="button" [disabled]="login.invalid" class="btn btn-info"
+                        (click)="register(login)">{{'Register'|translate}}</button>
+            </form>
+
+        </div>
     </div>
-    <div >
-    <label>{{'Password'|translate}}</label>
-        <input class="form-control" ngModel type="password" name="password" required>
-    </div>
-    <button type="submit" [disabled]="login.invalid" class="btn btn-info">{{'Submit'|translate}}</button>
-    <button type="button" [disabled]="login.invalid" class="btn btn-info" (click)="register(login)">{{'Register'|translate}}</button>
-</form>
+    <div class="col"></div>
+</div>

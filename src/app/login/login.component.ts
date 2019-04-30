@@ -10,10 +10,12 @@ import {ToastrService} from 'ngx-toastr';
 })
 export class LoginComponent implements OnInit {
 
+
   constructor(private loginService: LoginService,
               private toastr: ToastrService) { }
 
   ngOnInit() {
+
   }
 
   onSubmit(form: NgForm) {

@@ -1,41 +1,56 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/auth';
-import { ToastrService} from 'ngx-toastr';
+import {ToastrService} from 'ngx-toastr';
 import {NgForm} from '@angular/forms';
 import {Router} from '@angular/router';
+import {User} from 'firebase';
+import {Subject} from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class LoginService {
 
-  constructor(private fireAuth: AngularFireAuth,
-              private toastr: ToastrService,
-              private router: Router) { }
+    user = new Subject<any>();
 
-  login(form: NgForm) {
-    this.fireAuth.auth.signInWithEmailAndPassword(form.value.email, form.value.password)
-        .then(() => {console.log('log in');})
-        .catch((err) => {
-      console.log(err);
-    });
-    form.reset();
-  }
+    constructor(private fireAuth: AngularFireAuth,
+                private toastr: ToastrService,
+                private router: Router) {
+        fireAuth.authState.subscribe(user => {
+            this.user.next(user);
+        });
+    }
 
-  singup(form: NgForm) {
-    this.fireAuth.auth.createUserWithEmailAndPassword(form.value.email, form.value.password).then( value => {
-      this.toastr.success('You are registred now!', 'Success' );
-    }).catch( err => {
-      this.toastr.error(err.message, 'Error' );
+    login(form: NgForm) {
+        this.fireAuth.auth.signInWithEmailAndPassword(form.value.email, form.value.password)
+            .then(() => {
+                this.router.navigate(['/']);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+        form.reset();
+    }
 
-      console.log(err);
-    });
-  }
+    singup(form: NgForm) {
+        this.fireAuth.auth.createUserWithEmailAndPassword(form.value.email, form.value.password).then(value => {
+            this.toastr.success('You are registred now!', 'Success');
+        }).catch(err => {
+            this.toastr.error(err.message, 'Error');
 
-  logout() {
-    this.fireAuth.auth.signOut().then(() => {console.log('logout');
-    this.router.navigate(['/']);});
-  }
+            console.log(err);
+        });
+    }
+
+    logout() {
+        this.fireAuth.auth.signOut().then(() => {
+            this.router.navigate(['/']);
+        });
+    }
+
+    returnUser() {
+        return this.user.asObservable();
+    }
 
 
 }
