@@ -10,27 +10,21 @@ window['jQuery'] = jQuery;
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  display: boolean = false;
   user;
   constructor(private loginService: LoginService) { }
 
   ngOnInit() {
     this.loginService.returnUser().subscribe(res => {
       this.user = res;
-        }
-    )
+    console.log(res)}
+    );
   }
 
-  displayMenu() {
-    this.display = !this.display
-  }
 
   logout() {
     this.loginService.logout()
   }
 
-  showUser(){
-    console.log(this.user)
-  }
+
 
 }
