@@ -12,12 +12,14 @@ import {Subject} from 'rxjs';
 export class LoginService {
 
     user = new Subject<any>();
-
+    userFB : User;
     constructor(private fireAuth: AngularFireAuth,
                 private toastr: ToastrService,
                 private router: Router) {
         fireAuth.authState.subscribe(user => {
             this.user.next(user);
+            this.userFB = user;
+            // TODO Trzeba poprawić, bo coś nie prawidłowo w headerze działa przechwytywanie tego userFB i dlatego na RXJS zrobione user
         });
     }
 
