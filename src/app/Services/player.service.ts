@@ -7,19 +7,19 @@ import {AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} 
 export class PlayerService {
 
   collection = 'characters';
-  characterRef = this.afs.collection(this.collection);
+  characters;
+  character;
   race = ['Human', 'Orc', 'Elf', 'Dwarf'];
   class = ['Warrior', 'Mage', 'Rogue', 'Ranger'];
 
 
 
   constructor(private afs: AngularFirestore) {
-
+    this.characters = afs.collection('characters').ref;
+      // this.characters = this.afb.list('/characters');
+       console.log('characters', this.characters);
   }
 
-  addPlayerToFile(PlayerObject) {
-    console.log('playerObject', PlayerObject);
-  }
 
 
 }
