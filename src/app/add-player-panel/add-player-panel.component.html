@@ -1,9 +1,13 @@
 <div class="card">
-    <div class="card-title"><h2>{{'Add player'|translate}}</h2>
+    <div class="col">
+        <div class="card-title"><h2>{{'Add player'|translate}}</h2>
+        </div>
+        <div class="col">
+            {{startValue - characterValue}}
+        </div>
     </div>
     <div class="card-body">
         <div class="row">
-
             <form #addPlayer="ngForm" (ngSubmit)="onSubmit(addPlayer)">
                 <div class="row">
                     <div class="col">
@@ -33,32 +37,74 @@
                             <label>{{'Character name'|translate}} </label>
                             <input class="form-control" name="characterName" ngModel required #first="ngModel">
                         </div>
-                        <div class="card-footer">
-                            <button type="submit" class="btn btn-success">{{'Add player'|translate}}</button>
-                        </div>
                     </div>
                     <div class="col">
                         <div class="form-group">
                             <label>{{'Strange'|translate}} </label>
-                            <input class="form-control" name="strange" type="number" (change)="checkValue()" [(ngModel)]="character.strange" required #strange="ngModel">
+                            <div class="row">
+                                <div class="col">
+                                    <input class="form-control" name="strange" type="number" (change)="checkValue()"
+                                           [(ngModel)]="character.strange" required #strange="ngModel">
+                                </div>
+                                <div class="col">
+                                    {{showModify(character.strange)}}
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label>{{'Dexterity'|translate}} </label>
-                            <input class="form-control" name="dexterity" type="number" (change)="checkValue()" [(ngModel)]="character.dexterity" required #dexterity="ngModel">
+                            <div class="row">
+                                <div class="col">
+                                    <input class="form-control" name="dexterity" type="number" (change)="checkValue()"
+                                           [(ngModel)]="character.dexterity" required #dexterity="ngModel">
+                                </div>
+                                <div class="col">
+                                    {{showModify(character.dexterity)}}
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label>{{'Intelligence'|translate}} </label>
-                            <input class="form-control" name="intelligence" type="number" (change)="checkValue()" [(ngModel)]="character.intelligence" required #intelligence="ngModel">
+                            <div class="row">
+                                <div class="col">
+                                    <input class="form-control" name="intelligence" type="number"
+                                           (change)="checkValue()"
+                                           [(ngModel)]="character.intelligence" required #intelligence="ngModel">
+                                </div>
+                                <div class="col">
+                                    {{showModify(character.intelligence)}}
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label>{{'Charisma'|translate}} </label>
-                            <input class="form-control" name="charisma" type="number" (change)="checkValue()" [(ngModel)]="character.charisma" required #charisma="ngModel">
+                            <div class="row">
+                                <div class="col">
+                                    <input class="form-control" name="charisma" type="number" (change)="checkValue()"
+                                           [(ngModel)]="character.charisma" required #charisma="ngModel">
+                                </div>
+                                <div class="col">
+                                    {{showModify(character.charisma)}}
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label>{{'Condidtion'|translate}} </label>
-                            <input class="form-control" name="condidtion" type="number" (change)="checkValue()" [(ngModel)]="character.condidtion" required #condidtion="ngModel">
+                            <div class="row">
+                                <div class="col">
+                                    <input class="form-control" name="condidtion" type="number" (change)="checkValue()"
+                                           [(ngModel)]="character.condidtion" required #condidtion="ngModel">
+                                </div>
+                                <div class="col">
+                                    {{showModify(character.condidtion)}}
+                                </div>
+                            </div>
                         </div>
                     </div>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-success">{{'Add player'|translate}}</button>
+                    <button type="button" (click)="resetForm()" class="btn btn-warning">{{'Reset'|translate}}</button>
                 </div>
             </form>
         </div>
