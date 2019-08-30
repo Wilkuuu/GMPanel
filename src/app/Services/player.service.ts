@@ -25,7 +25,7 @@ export class PlayerService {
     console.log('playerservice', this.characterRef)
     this.afs.collection(this.collection).get().subscribe((el) => {
       console.log(el);
-    })
+    });
   }
 
 

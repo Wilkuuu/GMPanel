@@ -30,7 +30,7 @@ export class DicePanelComponent implements OnInit {
     }
 
     roll(value) {
-        let typeOfDice = 'k' + value;
+        const typeOfDice = 'k' + value;
         this.result = this.diceService.rollDice(value);
         this.globalResultArray[typeOfDice].push(this.result);
 
